@@ -1,15 +1,24 @@
 public class Luna {
-    private static Echo echo;
+    private static Add add;
+    private static TaskList taskList;
 
     public static void main(String[] args) {
         Luna.entry();
-        echo = new Echo();
-        while (true) {
-            String input = echo.read();
-            if (input.equals("bye")) {
-                break;
+        add = new Add();
+        taskList = new TaskList();
+        while (!add.isClosed()) {
+            String input = add.read();
+            switch (input) {
+                case "bye":
+                    add.close();
+                    break;
+                case "list":
+                    taskList.listTasks();
+                    break;
+                default:
+                    taskList.addTask(input);
+                    add.printAddedTask(input);
             }
-            echo.echo(input);
         }
         Luna.exit();
     }
