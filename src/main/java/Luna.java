@@ -7,7 +7,7 @@ public class Luna {
         add = new Add();
         taskList = new TaskList();
         while (!add.isClosed()) {
-            String input = add.read();
+            String input = add.readCommand();
             switch (input) {
                 case "bye":
                     add.close();
@@ -15,9 +15,17 @@ public class Luna {
                 case "list":
                     taskList.listTasks();
                     break;
+                case "mark":
+                    int markTaskId = Integer.parseInt(add.readInput());
+                    taskList.markTaskDone(markTaskId);
+                    break;
+                case "unmark":
+                    int unmarkTaskId = Integer.parseInt(add.readInput());
+                    taskList.markTaskNotDone(unmarkTaskId);
+                    break;
                 default:
-                    taskList.addTask(input);
-                    add.printAddedTask(input);
+                    String description = input + add.readInput();
+                    taskList.addTask(new Task(description));
             }
         }
         Luna.exit();

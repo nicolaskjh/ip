@@ -9,8 +9,12 @@ public class Add {
         closed = false;
     }
 
-    public String read() {
-        return sc.nextLine();
+    public String readCommand() {
+        return sc.next();
+    }
+
+    public String readInput() {
+        return sc.nextLine().stripLeading();
     }
 
     public boolean isClosed() {
@@ -20,11 +24,5 @@ public class Add {
     public void close() {
         sc.close();
         closed = true;
-    }
-
-    public void printAddedTask(String task) {
-        System.out.println("--------------------------------------");
-        System.out.println("added: " + task);
-        System.out.println("--------------------------------------");
     }
 }
