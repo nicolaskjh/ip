@@ -1,3 +1,5 @@
+import Tasks.*;
+
 public class Luna {
     private static Add add;
     private static TaskList taskList;
@@ -12,6 +14,18 @@ public class Luna {
                 case "bye":
                     add.close();
                     break;
+                case "todo":
+                    String task = add.readInput();
+                    taskList.addTask(new Todo(task));
+                    break;
+                case "deadline":
+                    String[] deadlineDetails = add.readInput().split("/");
+                    taskList.addTask(new Deadline(deadlineDetails[0], deadlineDetails[1]));
+                    break;
+                case "event":
+                    String[] eventDetails = add.readInput().split("/");
+                    taskList.addTask(new Event(eventDetails[0], eventDetails[1], eventDetails[2]));
+                    break;
                 case "list":
                     taskList.listTasks();
                     break;
@@ -24,8 +38,10 @@ public class Luna {
                     taskList.markTaskNotDone(unmarkTaskId);
                     break;
                 default:
-                    String description = input + add.readInput();
-                    taskList.addTask(new Task(description));
+                    System.out.println("--------------------------------------");
+                    System.out.println("Unknown command!");
+                    System.out.println("--------------------------------------");
+                    break;
             }
         }
         Luna.exit();

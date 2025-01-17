@@ -1,3 +1,5 @@
+package Tasks;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,7 @@ public class TaskList {
         this.numTasks = 0;
     }
 
-    public void addTask(Task task) {
+    public <T extends Task> void addTask(T task) {
         this.tasks.add(task);
         this.numTasks++;
         System.out.println("--------------------------------------");
