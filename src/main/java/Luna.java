@@ -38,9 +38,9 @@ public class Luna {
                     taskList.markTaskNotDone(unmarkTaskId);
                     break;
                 default:
-                    System.out.println("--------------------------------------");
+                    System.out.println("-------------------------------------");
                     System.out.println("Unknown command!");
-                    System.out.println("--------------------------------------");
+                    System.out.println("-------------------------------------");
                     break;
             }
         }
@@ -48,7 +48,7 @@ public class Luna {
     }
 
     public static void entry() {
-        System.out.println("--------------------------------------");
+        System.out.println("-------------------------------------");
         System.out.println("Hello! I'm Luna!");
         System.out.println("What can I do for you?");
         System.out.println("-------------------------------------");
