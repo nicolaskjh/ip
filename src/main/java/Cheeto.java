@@ -12,10 +12,14 @@ public class Cheeto {
         Cheeto.entry();
         while (sc.hasNextLine()) {
             String input = sc.nextLine();
-            Command currentCommand = InputReader.readInput(input);
-            System.out.println(currentCommand.getResponse(taskList));
-            if (currentCommand.isExit()) {
-                break;
+            try {
+                Command currentCommand = InputReader.readInput(input);
+                System.out.println(currentCommand.getResponse(taskList));
+                if (currentCommand.isExit()) {
+                    break;
+                }
+            } catch (CheetoException e) {
+                System.out.println(e.getMessage());
             }
         }
     }
