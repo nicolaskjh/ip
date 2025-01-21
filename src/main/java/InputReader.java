@@ -9,6 +9,7 @@ public class InputReader {
     private static final String EVENT = "event";
     private static final String MARK = "mark";
     private static final String UNMARK = "unmark";
+    private static final String DELETE = "delete";
 
     private static final String DEADLINE_SPLIT = "/by";
     private static final String EVENT_SPLIT = "/";
@@ -28,6 +29,8 @@ public class InputReader {
             return readMarkInput(input);
         } else if (input.startsWith(UNMARK)) {
             return readUnmarkInput(input);
+        } else if (input.startsWith(DELETE)) {
+            return readDeleteInput(input);
         } else {
             throw new CheetoException("I'm not sure what you mean by this meow :(");
         }
@@ -73,5 +76,15 @@ public class InputReader {
             throw new CheetoException("I need a task number to unmark!");
         }
         return new UnmarkDoneCommand(Integer.parseInt(split[1]) - 1);
+    }
+
+    public static Command readDeleteInput(String input) throws CheetoException {
+        String[] split = input.split(" ", 2);
+        if (split.length != 2) {
+            throw new CheetoException("I need a task number to delete!");
+        } else if (split[1].trim().isEmpty()) {
+            throw new CheetoException("I need a task number to delete!");
+        }
+        return new DeleteCommand(Integer.parseInt(split[1]) - 1);
     }
 }

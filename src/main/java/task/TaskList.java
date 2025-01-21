@@ -26,6 +26,11 @@ public class TaskList {
         this.numTasks++;
     }
 
+    public void removeTask(int idx) {
+        this.tasks.remove(idx);
+        this.numTasks--;
+    }
+
     public void markDone(int idx) {
         tasks.get(idx).markDone();
     }
