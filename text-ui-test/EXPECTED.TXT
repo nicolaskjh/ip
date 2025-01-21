@@ -1,56 +1,33 @@
--------------------------------------
-Hello! I'm Luna!
+Hello! I'm Cheeto!
 What can I do for you?
--------------------------------------
--------------------------------------
-Unknown command!
--------------------------------------
--------------------------------------
+I'm not sure what you mean by this meow :(
 Got it, I've added this task:
 [T][ ] meow
-You now have 1 task(s) in the list.
--------------------------------------
--------------------------------------
+You now have 1 tasks.
 Got it, I've added this task:
-[D][ ] meow1 (by 20th Jan)
-You now have 2 task(s) in the list.
--------------------------------------
--------------------------------------
+[D][ ] meow (by: 20th Jan)
+You now have 2 tasks.
 Got it, I've added this task:
-[E][ ] meow2 (from 21st Jan 2pm to 3pm)
-You now have 3 task(s) in the list.
--------------------------------------
--------------------------------------
+[E][ ] meow (from: today to: tomorrow)
+You now have 3 tasks.
+You currently have 3 tasks:
 1. [T][ ] meow
-2. [D][ ] meow1 (by 20th Jan)
-3. [E][ ] meow2 (from 21st Jan 2pm to 3pm)
--------------------------------------
--------------------------------------
-Nice! I've marked this task as done:
+2. [D][ ] meow (by: 20th Jan)
+3. [E][ ] meow (from: today to: tomorrow)
+I've marked this task as done:
 [T][X] meow
--------------------------------------
--------------------------------------
-Nice! I've marked this task as done:
-[D][X] meow1 (by 20th Jan)
--------------------------------------
--------------------------------------
+I've marked this task as done:
+[E][X] meow (from: today to: tomorrow)
+You currently have 3 tasks:
 1. [T][X] meow
-2. [D][X] meow1 (by 20th Jan)
-3. [E][ ] meow2 (from 21st Jan 2pm to 3pm)
--------------------------------------
--------------------------------------
-OK, I've marked this task as not done:
+2. [D][ ] meow (by: 20th Jan)
+3. [E][X] meow (from: today to: tomorrow)
+I've unmarked this task:
 [T][ ] meow
--------------------------------------
--------------------------------------
-Nice! I've marked this task as done:
-[E][X] meow2 (from 21st Jan 2pm to 3pm)
--------------------------------------
--------------------------------------
+I've marked this task as done:
+[D][X] meow (by: 20th Jan)
+You currently have 3 tasks:
 1. [T][ ] meow
-2. [D][X] meow1 (by 20th Jan)
-3. [E][X] meow2 (from 21st Jan 2pm to 3pm)
--------------------------------------
--------------------------------------
+2. [D][X] meow (by: 20th Jan)
+3. [E][X] meow (from: today to: tomorrow)
 Hope to see you again soon! meow
--------------------------------------

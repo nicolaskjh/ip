@@ -1,12 +1,12 @@
 hi
 todo meow
-deadline meow1 /by 20th Jan
-event meow2 /from 21st Jan 2pm /to 3pm
+deadline meow /by 20th Jan
+event meow /today /tomorrow
 list
 mark 1
-mark 2
+mark 3
 list
 unmark 1
-mark 3
+mark 2
 list
 bye

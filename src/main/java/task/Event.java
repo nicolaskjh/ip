@@ -1,8 +1,8 @@
-package Tasks;
+package task;
 
 public class Event extends Task {
-    protected String start;
-    protected String end;
+    private String start;
+    private String end;
 
     public Event(String description, String start, String end) {
         super(description);
@@ -12,6 +12,6 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + "(" + this.start + this.end + ")";
+        return "[E]" + super.toString() + " (from: " + this.start + " to: " + this.end + ")";
     }
 }

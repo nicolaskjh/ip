@@ -1,4 +1,4 @@
-# Luna User Guide
+# Cheeto User Guide
 
 // Product screenshot goes here
 

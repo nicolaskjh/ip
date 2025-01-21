@@ -1,7 +1,7 @@
-package Tasks;
+package task;
 
 public class Deadline extends Task {
-    protected String dueDate;
+    private String dueDate;
 
     public Deadline(String description, String dueDate) {
         super(description);
@@ -10,6 +10,6 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + "(" + this.dueDate + ")";
+        return "[D]" + super.toString() + " (by: " + this.dueDate + ")";
     }
 }
