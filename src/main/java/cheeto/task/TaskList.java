@@ -13,6 +13,11 @@ public class TaskList {
         this.numTasks = 0;
     }
 
+    public TaskList(List<Task> tasks) {
+        this.tasks = tasks;
+        this.numTasks = tasks.size();
+    }
+
     public Task getTask(int idx) {
         return this.tasks.get(idx);
     }

@@ -9,6 +9,11 @@ public class Deadline extends Task {
     }
 
     @Override
+    public String toDataString() {
+        return "D, " + super.getStatusData() + ", " + super.getDescription() + ", " + this.dueDate;
+    }
+
+    @Override
     public String toString() {
         return "[D]" + super.toString() + " (by: " + this.dueDate + ")";
     }

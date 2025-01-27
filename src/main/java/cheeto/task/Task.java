@@ -1,6 +1,6 @@
 package cheeto.task;
 
-public class Task {
+abstract public class Task {
     private String description;
     private boolean isDone;
 
@@ -9,8 +9,16 @@ public class Task {
         this.isDone = false;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
     public String getStatusIcon() {
-        return (isDone ? "X" : " ");
+        return (this.isDone ? "X" : " ");
+    }
+
+    public String getStatusData() {
+        return (this.isDone ? "1" : "0");
     }
 
     public void markDone() {
@@ -20,6 +28,8 @@ public class Task {
     public void unmarkDone() {
         this.isDone = false;
     }
+
+    public abstract String toDataString();
 
     @Override
     public String toString() {
