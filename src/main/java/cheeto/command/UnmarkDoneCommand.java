@@ -12,6 +12,7 @@ public class UnmarkDoneCommand extends Command {
     @Override
     public String getResponse(TaskList taskList) {
         taskList.unmarkDone(this.idx);
+
         return "I've unmarked this task:\n"
                 + taskList.getTask(idx).toString();
     }
