@@ -86,6 +86,7 @@ public class Storage {
             String fileDirectory = this.filePath.replace(
                     this.filePath.substring(this.filePath.indexOf("/")), "");
             File file = new File(fileDirectory);
+
             if (file.mkdir()) {
                 storeTasks(tasks);
             } else {

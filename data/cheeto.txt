@@ -3,4 +3,3 @@ D, 0, return book, June 6th
 D, 1, project meeting, Aug 6th 2pm
 T, 1, join sports club
 T, 0, meow
-D, 1, meow, Jan 31st

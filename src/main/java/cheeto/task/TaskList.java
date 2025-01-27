@@ -47,6 +47,7 @@ public class TaskList {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
+
         for (int i = 0; i < this.numTasks; i++) {
             res.append(String.format("%d. ", i + 1));
             res.append(this.tasks.get(i).toString());
