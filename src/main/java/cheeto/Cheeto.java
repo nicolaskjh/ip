@@ -1,7 +1,11 @@
 package cheeto;
 
-import cheeto.command.*;
-import cheeto.task.*;
+import cheeto.command.Command;
+
+import cheeto.task.TaskList;
+
+import cheeto.reader.InputReader;
+
 import java.util.Scanner;
 
 public class Cheeto {

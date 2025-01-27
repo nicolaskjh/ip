@@ -12,7 +12,7 @@ public class MarkDoneCommand extends Command {
     @Override
     public String getResponse(TaskList taskList) {
         taskList.markDone(this.idx);
-        return "I've marked this cheeto.task as done:\n"
+        return "I've marked this task as done:\n"
                 + taskList.getTask(idx).toString();
     }
 }
