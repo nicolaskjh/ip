@@ -1,4 +1,4 @@
-package task;
+package cheeto.task;
 
 public class Deadline extends Task {
     private String dueDate;

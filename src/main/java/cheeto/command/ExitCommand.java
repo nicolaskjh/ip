@@ -1,6 +1,6 @@
-package command;
+package cheeto.command;
 
-import task.TaskList;
+import cheeto.task.TaskList;
 
 public class ExitCommand extends Command {
     @Override

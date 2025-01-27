@@ -1,7 +1,7 @@
-package command;
+package cheeto.command;
 
-import task.Task;
-import task.TaskList;
+import cheeto.task.Task;
+import cheeto.task.TaskList;
 
 public class AddCommand extends Command {
     private Task task;
@@ -13,7 +13,7 @@ public class AddCommand extends Command {
     @Override
     public String getResponse(TaskList taskList) {
         taskList.addTask(this.task);
-        return "Got it, I've added this task:\n" + this.task.toString() +
+        return "Got it, I've added this cheeto.task:\n" + this.task.toString() +
                 "\nYou now have " + taskList.getNumTasks() + " tasks.";
     }
 }

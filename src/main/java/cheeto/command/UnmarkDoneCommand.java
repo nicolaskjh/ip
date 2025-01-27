@@ -1,6 +1,6 @@
-package command;
+package cheeto.command;
 
-import task.TaskList;
+import cheeto.task.TaskList;
 
 public class UnmarkDoneCommand extends Command {
     private int idx;
@@ -12,7 +12,7 @@ public class UnmarkDoneCommand extends Command {
     @Override
     public String getResponse(TaskList taskList) {
         taskList.unmarkDone(this.idx);
-        return "I've unmarked this task:\n"
+        return "I've unmarked this cheeto.task:\n"
                 + taskList.getTask(idx).toString();
     }
 }

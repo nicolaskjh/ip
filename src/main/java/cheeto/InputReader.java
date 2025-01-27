@@ -1,5 +1,7 @@
-import command.*;
-import task.*;
+package cheeto;
+
+import cheeto.command.*;
+import cheeto.task.*;
 
 public class InputReader {
     private static final String EXIT = "bye";
@@ -39,9 +41,9 @@ public class InputReader {
     public static Command readTodoInput(String input) throws CheetoException {
         String[] split = input.split(" ", 2);
         if (split.length != 2) {
-            throw new CheetoException("I need a description for your todo task!");
+            throw new CheetoException("I need a description for your todo cheeto.task!");
         } else if (split[1].trim().isEmpty()) {
-            throw new CheetoException("I need a description for your todo task!");
+            throw new CheetoException("I need a description for your todo cheeto.task!");
         }
         return new AddCommand(new Todo(split[1].trim()));
     }
@@ -61,9 +63,9 @@ public class InputReader {
     public static Command readMarkInput(String input) throws CheetoException {
         String[] split = input.split(" ", 2);
         if (split.length != 2) {
-            throw new CheetoException("I need a task number to mark!");
+            throw new CheetoException("I need a cheeto.task number to mark!");
         } else if (split[1].trim().isEmpty()) {
-            throw new CheetoException("I need a task number to mark!");
+            throw new CheetoException("I need a cheeto.task number to mark!");
         }
         return new MarkDoneCommand(Integer.parseInt(split[1]) - 1);
     }
@@ -71,9 +73,9 @@ public class InputReader {
     public static Command readUnmarkInput(String input) throws CheetoException {
         String[] split = input.split(" ", 2);
         if (split.length != 2) {
-            throw new CheetoException("I need a task number to unmark!");
+            throw new CheetoException("I need a cheeto.task number to unmark!");
         } else if (split[1].trim().isEmpty()) {
-            throw new CheetoException("I need a task number to unmark!");
+            throw new CheetoException("I need a cheeto.task number to unmark!");
         }
         return new UnmarkDoneCommand(Integer.parseInt(split[1]) - 1);
     }
@@ -81,9 +83,9 @@ public class InputReader {
     public static Command readDeleteInput(String input) throws CheetoException {
         String[] split = input.split(" ", 2);
         if (split.length != 2) {
-            throw new CheetoException("I need a task number to delete!");
+            throw new CheetoException("I need a cheeto.task number to delete!");
         } else if (split[1].trim().isEmpty()) {
-            throw new CheetoException("I need a task number to delete!");
+            throw new CheetoException("I need a cheeto.task number to delete!");
         }
         return new DeleteCommand(Integer.parseInt(split[1]) - 1);
     }

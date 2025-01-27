@@ -1,4 +1,4 @@
-package task;
+package cheeto.task;
 
 public class Event extends Task {
     private String start;

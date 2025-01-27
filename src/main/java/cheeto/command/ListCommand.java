@@ -1,7 +1,6 @@
-package command;
+package cheeto.command;
 
-import task.TaskList;
-import task.Task;
+import cheeto.task.TaskList;
 
 public class ListCommand extends Command {
     @Override

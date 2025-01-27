@@ -1,5 +1,7 @@
-import command.*;
-import task.*;
+package cheeto;
+
+import cheeto.command.*;
+import cheeto.task.*;
 import java.util.Scanner;
 
 public class Cheeto {

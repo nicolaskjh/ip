@@ -1,6 +1,6 @@
-package command;
+package cheeto.command;
 
-import task.TaskList;
+import cheeto.task.TaskList;
 
 public abstract class Command {
     public abstract String getResponse(TaskList taskList);
