@@ -16,7 +16,7 @@ public class Event extends Task {
 
     @Override
     public String toDataString() {
-        return "D,  " + super.getStatusData() + ", " + super.getDescription() +
+        return "E,  " + super.getStatusData() + ", " + super.getDescription() +
                 ", " + DateParser.dateTimeToDataString(this.start) +  ", "
                 + DateParser.dateTimeToDataString(this.end);
     }

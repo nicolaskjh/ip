@@ -13,16 +13,22 @@ public class Lebron {
     private static Storage storage;
 
     public static void main(String[] args) {
-        sc = new Scanner(System.in);
-        storage = new Storage();
+        new Lebron("data/lebron.txt").run();
+    }
 
+    public Lebron(String filePath) {
+        storage = new Storage(filePath);
         try {
             taskList = new TaskList(storage.loadTasks());
         } catch (LebronException e) {
             taskList = new TaskList();
         }
+    }
 
-        Lebron.entry();
+    public void run() {
+        sc = new Scanner(System.in);
+        System.out.println("Hello! I'm LeBron!");
+        System.out.println("What can I do for you?");
 
         while (sc.hasNextLine()) {
             String input = sc.nextLine();
@@ -30,7 +36,7 @@ public class Lebron {
                 Command currentCommand = InputParser.readInput(input);
 
                 if (currentCommand.isExit()) {
-                    Lebron.exit();
+                    this.exit();
                     System.out.println(currentCommand.getResponse(taskList));
                     break;
                 }
@@ -42,12 +48,7 @@ public class Lebron {
         }
     }
 
-    public static void entry() {
-        System.out.println("Hello! I'm LeBron!");
-        System.out.println("What can I do for you?");
-    }
-
-    public static void exit() {
+    public void exit() {
         storage.storeTasks(taskList);
     }
 }
