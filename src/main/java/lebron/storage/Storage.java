@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import lebron.parser.DateParser;
 import lebron.task.Deadline;
 import lebron.task.Task;
 import lebron.task.TaskList;
@@ -42,11 +46,11 @@ public class Storage {
                 if (taskType.equals(TASK_TODO)) {
                     task = new Todo(description);
                 } else if (taskType.equals(TASK_DEADLINE)) {
-                    String deadline = parts[3].trim();
+                    LocalDate deadline = DateParser.parseDate(parts[3].trim());
                     task = new Deadline(description, deadline);
                 } else {
-                    String start = parts[3].trim();
-                    String end = parts[4].trim();
+                    LocalDateTime start = DateParser.parseDateTime(parts[3].trim());
+                    LocalDateTime end = DateParser.parseDateTime(parts[4].trim());
                     task = new Event(description, start, end);
                 }
 
