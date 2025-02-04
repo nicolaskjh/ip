@@ -1,7 +1,7 @@
 hi
 todo meow
-deadline meow /by 20th Jan
-event meow /today /tomorrow
+deadline meow /by 2025-02-05
+event meow /2025-02-06 1300 /2025-02-06 1800
 list
 mark 1
 mark 3
