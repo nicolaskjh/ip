@@ -1,30 +1,30 @@
-Hello! I'm Cheeto!
+Hello! I'm LeBron!
 What can I do for you?
 I'm not sure what you mean by this meow :(
-Got it, I've added this cheeto.task:
+Got it, I've added this task:
 [T][ ] meow
 You now have 1 tasks.
-Got it, I've added this cheeto.task:
+Got it, I've added this task:
 [D][ ] meow (by: 20th Jan)
 You now have 2 tasks.
-Got it, I've added this cheeto.task:
+Got it, I've added this task:
 [E][ ] meow (from: today to: tomorrow)
 You now have 3 tasks.
 You currently have 3 tasks:
 1. [T][ ] meow
 2. [D][ ] meow (by: 20th Jan)
 3. [E][ ] meow (from: today to: tomorrow)
-I've marked this cheeto.task as done:
+I've marked this task as done:
 [T][X] meow
-I've marked this cheeto.task as done:
+I've marked this task as done:
 [E][X] meow (from: today to: tomorrow)
 You currently have 3 tasks:
 1. [T][X] meow
 2. [D][ ] meow (by: 20th Jan)
 3. [E][X] meow (from: today to: tomorrow)
-I've unmarked this cheeto.task:
+I've unmarked this task:
 [T][ ] meow
-I've marked this cheeto.task as done:
+I've marked this task as done:
 [D][X] meow (by: 20th Jan)
 You currently have 3 tasks:
 1. [T][ ] meow

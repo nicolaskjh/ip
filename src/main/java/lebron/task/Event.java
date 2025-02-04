@@ -1,10 +1,14 @@
-package cheeto.task;
+package lebron.task;
+
+import java.time.LocalDateTime;
+
+import lebron.parser.DateParser;
 
 public class Event extends Task {
-    private String start;
-    private String end;
+    private LocalDateTime start;
+    private LocalDateTime end;
 
-    public Event(String description, String start, String end) {
+    public Event(String description, LocalDateTime start, LocalDateTime end) {
         super(description);
         this.start = start;
         this.end = end;
@@ -13,11 +17,13 @@ public class Event extends Task {
     @Override
     public String toDataString() {
         return "D,  " + super.getStatusData() + ", " + super.getDescription() +
-                ", " + this.start +  ", " + this.end;
+                ", " + DateParser.dateTimeToDataString(this.start) +  ", "
+                + DateParser.dateTimeToDataString(this.end);
     }
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + this.start + " to: " + this.end + ")";
+        return "[E]" + super.toString() + " (from: " + DateParser.dateTimeToString(this.start)
+                + " to: " + DateParser.dateTimeToString(this.end) + ")";
     }
 }

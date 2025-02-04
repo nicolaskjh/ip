@@ -1,4 +1,4 @@
-package lebron.reader;
+package lebron.parser;
 
 import lebron.LebronException;
 
@@ -14,7 +14,10 @@ import lebron.task.Deadline;
 import lebron.task.Event;
 import lebron.task.Todo;
 
-public class InputReader {
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class InputParser {
     private static final String PREFIX_EXIT = "bye";
     private static final String PREFIX_LIST = "list";
     private static final String PREFIX_TODO = "todo";
@@ -64,15 +67,18 @@ public class InputReader {
     public static Command readDeadlineInput(String input) {
         String[] split = input.split(" ", 2);
         String[] deadlineSplit = split[1].split(SPLIT_DEADLINE);
+        LocalDate deadline = DateParser.parseDate(deadlineSplit[1].trim());
 
-        return new AddCommand(new Deadline(deadlineSplit[0].trim(), deadlineSplit[1].trim()));
+        return new AddCommand(new Deadline(deadlineSplit[0].trim(), deadline));
     }
 
     public static Command readEventInput(String input) {
         String[] split = input.split(" ", 2);
         String[] eventSplit = split[1].split(SPLIT_EVENT);
+        LocalDateTime from = DateParser.parseDateTime(eventSplit[1].trim());
+        LocalDateTime to = DateParser.parseDateTime(eventSplit[2].trim());
 
-        return new AddCommand(new Event(eventSplit[0].trim(), eventSplit[1].trim(), eventSplit[2].trim()));
+        return new AddCommand(new Event(eventSplit[0].trim(), from, to));
     }
 
     public static Command readMarkInput(String input) throws LebronException {

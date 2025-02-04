@@ -1,4 +1,4 @@
-package cheeto.storage;
+package lebron.storage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,20 +6,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import cheeto.task.Deadline;
-import cheeto.task.Task;
-import cheeto.task.TaskList;
-import cheeto.task.Todo;
-import cheeto.task.Event;
+import lebron.task.Deadline;
+import lebron.task.Task;
+import lebron.task.TaskList;
+import lebron.task.Todo;
+import lebron.task.Event;
 
-import cheeto.CheetoException;
+import lebron.LebronException;
 
 public class Storage {
-    private String filePath = "./data/cheeto.txt";
+    private String filePath = "./data/lebron.txt";
 
     private final String TASK_TODO = "T";
     private final String TASK_DEADLINE = "D";
@@ -27,7 +26,7 @@ public class Storage {
 
     private final String TASK_DONE = "1";
 
-    public List<Task> loadTasks() throws CheetoException {
+    public List<Task> loadTasks() throws LebronException {
         File file = new File(this.filePath);
         try {
             Scanner sc = new Scanner(file);
@@ -60,11 +59,11 @@ public class Storage {
 
             return tasks;
         } catch (FileNotFoundException e) {
-            throw new CheetoException("Unable to find file in path " + this.filePath);
+            throw new LebronException("Unable to find file in path " + this.filePath);
         }
     }
 
-    public void storeTasks(TaskList tasks){
+    public void storeTasks(TaskList tasks) {
         try {
             File file = new File(this.filePath);
             FileWriter fw = new FileWriter(file);

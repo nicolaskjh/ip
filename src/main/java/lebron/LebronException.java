@@ -1,7 +1,7 @@
-package cheeto;
+package lebron;
 
-public class CheetoException extends Exception {
-    public CheetoException(String message) {
+public class LebronException extends Exception {
+    public LebronException(String message) {
         super(message);
     }
 }

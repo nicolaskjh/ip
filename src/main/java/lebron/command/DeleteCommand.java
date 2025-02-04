@@ -1,7 +1,7 @@
-package cheeto.command;
+package lebron.command;
 
-import cheeto.task.Task;
-import cheeto.task.TaskList;
+import lebron.task.Task;
+import lebron.task.TaskList;
 
 public class DeleteCommand extends Command {
     private int idx;
