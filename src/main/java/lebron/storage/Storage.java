@@ -22,13 +22,17 @@ import lebron.task.Event;
 import lebron.LebronException;
 
 public class Storage {
-    private String filePath = "./data/lebron.txt";
+    private final String filePath;
 
     private final String TASK_TODO = "T";
     private final String TASK_DEADLINE = "D";
     private final String TASK_EVENT = "E";
 
     private final String TASK_DONE = "1";
+
+    public Storage(String filePath) {
+        this.filePath = filePath;
+    }
 
     public List<Task> loadTasks() throws LebronException {
         File file = new File(this.filePath);
