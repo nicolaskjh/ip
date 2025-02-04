@@ -1,6 +1,6 @@
 T, 1, lock in
 D, 1, LOCK IN, 2025-02-05
-D, 1, LOCK INNNNN, 2025-02-07
+D, 1, LOCK IN!, 2025-02-07
 T, 1, repost LeBron video
 E,  0, meow, 2025-02-08 1300, 2025-02-08 1800
-T, 1, LOCK IN NOW
+T, 1, LOCK IN RIGHT NOW
