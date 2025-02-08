@@ -6,15 +6,15 @@ import lebron.task.TaskList;
  * Represents a MarkDoneCommand to mark a task as done
  */
 public class MarkDoneCommand extends Command {
-    private int idx;
+    private int taskNumber;
 
     /**
      * Constructor for MarkDoneCommand
      *
-     * @param idx The task number to be marked
+     * @param taskNumber The task number to be marked
      */
-    public MarkDoneCommand(int idx) {
-        this.idx = idx;
+    public MarkDoneCommand(int taskNumber) {
+        this.taskNumber = taskNumber;
     }
 
     /**
@@ -25,9 +25,9 @@ public class MarkDoneCommand extends Command {
      */
     @Override
     public String getResponse(TaskList taskList) {
-        taskList.markDone(this.idx);
+        taskList.markDone(this.taskNumber);
 
         return "I've marked this task as done:\n"
-                + taskList.getTask(idx).toString();
+                + taskList.getTask(taskNumber).toString();
     }
 }
