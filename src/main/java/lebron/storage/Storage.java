@@ -97,7 +97,6 @@ public class Storage {
             }
 
             fw.write(storedTasks.toString());
-            System.out.println("Tasks stored successfully!");
             fw.close();
         } catch (IOException e) {
             String fileDirectory = this.filePath.replace(
@@ -106,8 +105,6 @@ public class Storage {
 
             if (file.mkdir()) {
                 storeTasks(tasks);
-            } else {
-                System.out.println("Unable to create directory " + fileDirectory);
             }
         }
     }

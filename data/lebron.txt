@@ -1,6 +1,2 @@
-T, 1, lock in
-D, 1, LOCK IN, 2025-02-05
-D, 1, LOCK IN!, 2025-02-07
-T, 0, repost LeBron video
-E,  0, meow, 2025-02-08 1300, 2025-02-08 1800
-T, 1, LOCK IN RIGHT NOW
+T, 0, Buy Bronny jersey
+E,  0, Watch the Lakers, 2025-02-09 1800, 2025-02-09 2000

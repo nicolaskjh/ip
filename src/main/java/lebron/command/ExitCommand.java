@@ -14,7 +14,7 @@ public class ExitCommand extends Command {
      */
     @Override
     public String getResponse(TaskList taskList) {
-        return "Hope to see you again soon!";
+        return "LeUnc needs some rest. Bye!";
     }
 
     /**

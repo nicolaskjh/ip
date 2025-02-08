@@ -25,7 +25,6 @@ public class Main extends Application {
             loader.<MainWindow>getController().setChatbot(lebron);
             stage.setOnCloseRequest(e -> {
                 e.consume();
-                lebron.exit();
                 loader.<MainWindow>getController().closeWindow();
             });
             stage.show();

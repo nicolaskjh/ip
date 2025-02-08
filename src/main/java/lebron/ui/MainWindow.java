@@ -1,6 +1,5 @@
 package lebron.ui;
 
-import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
@@ -16,7 +15,7 @@ import lebron.Lebron;
  * Represents the main window for the GUI of LeBron chatbot
  */
 public class MainWindow {
-    private static final String EXIT_RESPONSE = "Hope to see you again soon!";
+    private static final String EXIT_RESPONSE = "LeUnc needs some rest. Bye!";
 
     @FXML
     private ScrollPane scrollPane;
@@ -73,6 +72,7 @@ public class MainWindow {
         userInput.clear();
 
         if (response.equals(EXIT_RESPONSE)) {
+            lebron.exit();
             new Thread(() -> {
                 try {
                     Thread.sleep(1000);

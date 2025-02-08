@@ -10,7 +10,7 @@
     <children>
         <Label fx:id="text" lineSpacing="2.0" minHeight="-Infinity" style="-fx-padding: 5; -fx-label-padding: 5; -fx-background-radius: 10; -fx-background-color: #552583;" text="this is a very very very very very long text hahahaha again this is a very very long text" textFill="#fffefe" textOverrun="CLIP" wrapText="true">
             <font>
-                <Font name="Helvetica" size="13.0" />
+                <Font name="Helvetica" size="12.0" />
             </font>
             <HBox.margin>
                 <Insets />

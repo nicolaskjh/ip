@@ -4,14 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lebron.LebronException;
-import lebron.command.AddCommand;
-import lebron.command.Command;
-import lebron.command.DeleteCommand;
-import lebron.command.ExitCommand;
-import lebron.command.FindCommand;
-import lebron.command.ListCommand;
-import lebron.command.MarkDoneCommand;
-import lebron.command.UnmarkDoneCommand;
+import lebron.command.*;
 import lebron.task.Deadline;
 import lebron.task.Event;
 import lebron.task.Todo;
@@ -29,6 +22,7 @@ public class InputParser {
     private static final String PREFIX_UNMARK = "unmark";
     private static final String PREFIX_DELETE = "delete";
     private static final String PREFIX_FIND = "find";
+    private static final String PREFIX_SING = "sing";
 
     private static final String SPLIT_DEADLINE = "/by";
     private static final String SPLIT_EVENT = "/";
@@ -59,6 +53,8 @@ public class InputParser {
             return readDeleteInput(input);
         } else if (input.startsWith(PREFIX_FIND)) {
             return readFindInput(input);
+        } else if (input.startsWith(PREFIX_SING)) {
+            return new SingCommand();
         } else {
             throw new LebronException("I'm not sure what you mean by this.");
         }
