@@ -1,15 +1,20 @@
 package lebron.parser;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import lebron.LebronException;
-
-import lebron.command.*;
-
+import lebron.command.AddCommand;
+import lebron.command.Command;
+import lebron.command.DeleteCommand;
+import lebron.command.ExitCommand;
+import lebron.command.FindCommand;
+import lebron.command.ListCommand;
+import lebron.command.MarkDoneCommand;
+import lebron.command.UnmarkDoneCommand;
 import lebron.task.Deadline;
 import lebron.task.Event;
 import lebron.task.Todo;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * Represents an InputParser to parse user input
@@ -164,6 +169,13 @@ public class InputParser {
         return new DeleteCommand(Integer.parseInt(split[1]) - 1);
     }
 
+    /**
+     * Reads a Find input given by the user
+     *
+     * @param input Text input from the user
+     * @return FindCommand to be executed
+     * @throws LebronException If keyword given is empty
+     */
     public static Command readFindInput(String input) throws LebronException {
         String[] split = input.split(" ", 2);
 

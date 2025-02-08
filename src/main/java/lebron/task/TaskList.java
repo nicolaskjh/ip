@@ -2,10 +2,9 @@ package lebron.task;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.StringBuilder;
 
 /**
- * Reptasksents a TaskList to store tasks added by the user
+ * Represents a TaskList to store tasks added by the user
  */
 public class TaskList {
     private List<Task> tasks;

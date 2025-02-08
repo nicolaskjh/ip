@@ -1,11 +1,11 @@
 package lebron;
 
+import java.util.Scanner;
+
 import lebron.command.Command;
-import lebron.task.TaskList;
 import lebron.parser.InputParser;
 import lebron.storage.Storage;
-
-import java.util.Scanner;
+import lebron.task.TaskList;
 
 /**
  * The main class for LeBron ChatBot
@@ -14,10 +14,6 @@ public class Lebron {
     private static TaskList taskList;
     private static Scanner sc;
     private static Storage storage;
-
-    public static void main(String[] args) {
-        new Lebron("data/lebron.txt").run();
-    }
 
     /**
      * Constructor for LeBron
@@ -31,6 +27,15 @@ public class Lebron {
         } catch (LebronException e) {
             taskList = new TaskList();
         }
+    }
+
+    /**
+     * Main method to run LeBron chatbot
+     *
+     * @param args Arguments to be provided
+     */
+    public static void main(String[] args) {
+        new Lebron("data/lebron.txt").run();
     }
 
     /**

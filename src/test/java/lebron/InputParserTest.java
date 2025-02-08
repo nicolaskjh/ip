@@ -1,9 +1,10 @@
 package lebron;
 
-import lebron.parser.InputParser;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import lebron.parser.InputParser;
 
 public class InputParserTest {
     @Test

@@ -29,7 +29,7 @@ public class DeleteCommand extends Command {
         Task removed = taskList.getTask(taskNumber);
         taskList.removeTask(this.taskNumber);
 
-        return "Got it, I've removed this task:\n" + removed.toString() +
-                "\nYou now have " + taskList.getNumTasks() + " tasks.";
+        return "Got it, I've removed this task:\n" + removed.toString()
+                + "\nYou now have " + taskList.getNumTasks() + " tasks.";
     }
 }

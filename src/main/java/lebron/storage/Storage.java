@@ -4,22 +4,19 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
+import lebron.LebronException;
 import lebron.parser.DateParser;
 import lebron.task.Deadline;
+import lebron.task.Event;
 import lebron.task.Task;
 import lebron.task.TaskList;
 import lebron.task.Todo;
-import lebron.task.Event;
-
-import lebron.LebronException;
 
 /**
  * Represents a storage class to load and store tasks from a text file

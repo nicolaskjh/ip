@@ -31,8 +31,8 @@ public class Event extends Task {
      */
     @Override
     public String toDataString() {
-        return "E,  " + super.getStatusData() + ", " + super.getDescription() +
-                ", " + DateParser.dateTimeToDataString(this.start) +  ", "
+        return "E,  " + super.getStatusData() + ", " + super.getDescription()
+                + ", " + DateParser.dateTimeToDataString(this.start) + ", "
                 + DateParser.dateTimeToDataString(this.end);
     }
 

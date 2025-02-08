@@ -3,7 +3,7 @@ package lebron.task;
 /**
  * Abstract class representing a Task
  */
-abstract public class Task {
+public abstract class Task {
     private String description;
     private boolean isDone;
 
