@@ -2,13 +2,7 @@ package lebron.parser;
 
 import lebron.LebronException;
 
-import lebron.command.AddCommand;
-import lebron.command.Command;
-import lebron.command.DeleteCommand;
-import lebron.command.ExitCommand;
-import lebron.command.ListCommand;
-import lebron.command.MarkDoneCommand;
-import lebron.command.UnmarkDoneCommand;
+import lebron.command.*;
 
 import lebron.task.Deadline;
 import lebron.task.Event;
@@ -29,6 +23,7 @@ public class InputParser {
     private static final String PREFIX_MARK = "mark";
     private static final String PREFIX_UNMARK = "unmark";
     private static final String PREFIX_DELETE = "delete";
+    private static final String PREFIX_FIND = "find";
 
     private static final String SPLIT_DEADLINE = "/by";
     private static final String SPLIT_EVENT = "/";
@@ -57,6 +52,8 @@ public class InputParser {
             return readUnmarkInput(input);
         } else if (input.startsWith(PREFIX_DELETE)) {
             return readDeleteInput(input);
+        } else if (input.startsWith(PREFIX_FIND)) {
+            return readFindInput(input);
         } else {
             throw new LebronException("I'm not sure what you mean by this meow :(");
         }
@@ -165,5 +162,17 @@ public class InputParser {
         }
 
         return new DeleteCommand(Integer.parseInt(split[1]) - 1);
+    }
+
+    public static Command readFindInput(String input) throws LebronException {
+        String[] split = input.split(" ", 2);
+
+        if (split.length != 2) {
+            throw new LebronException("I need a keyword to filter tasks!");
+        } else if (split[1].trim().isEmpty()) {
+            throw new LebronException("I need a keyword to filter tasks!");
+        }
+
+        return new FindCommand(split[1].trim());
     }
 }
