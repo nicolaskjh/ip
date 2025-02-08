@@ -8,6 +8,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import lebron.Lebron;
 
@@ -15,6 +17,7 @@ import lebron.Lebron;
  * Represents the main window for the GUI of LeBron chatbot
  */
 public class MainWindow {
+    private static final String SING_INPUT = "sing";
     private static final String EXIT_RESPONSE = "LeUnc needs some rest. Bye!";
 
     @FXML
@@ -30,6 +33,8 @@ public class MainWindow {
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/bronny.png"));
     private Image lebronImage = new Image(this.getClass().getResourceAsStream("/images/lebron.png"));
+    private String audioFile = "/audio/lebron.mp3";
+    private MediaPlayer audio;
 
     /**
      * Sets the chatbot to an instance of Lebron
@@ -70,6 +75,15 @@ public class MainWindow {
                 TextBox.getLebronText(response, lebronImage)
         );
         userInput.clear();
+
+        if (input.equals(SING_INPUT)) {
+            if (audio != null && audio.getStatus() == MediaPlayer.Status.PLAYING) {
+                audio.stop();
+            }
+
+            this.audio = new MediaPlayer(new Media(this.getClass().getResource(this.audioFile).toExternalForm()));
+            this.audio.play();
+        }
 
         if (response.equals(EXIT_RESPONSE)) {
             lebron.exit();

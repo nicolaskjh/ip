@@ -3,7 +3,7 @@ package lebron.command;
 import lebron.task.TaskList;
 
 /**
- * Represents an easter egg SingCommand class
+ * Represents an easter egg SingCommand class to play a song
  */
 public class SingCommand extends Command {
     /**
