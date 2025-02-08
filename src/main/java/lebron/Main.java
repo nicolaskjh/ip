@@ -1,21 +1,37 @@
 package lebron;
 
+import java.io.IOException;
+
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lebron.ui.MainWindow;
 
 /**
  * A GUI for LeBron chatbot using JavaFX
  */
 public class Main extends Application {
+    private Lebron lebron = new Lebron("./data/lebron.txt");
 
     @Override
     public void start(Stage stage) {
-        Label helloWorld = new Label("Hello World!"); // Creating a new Label control
-        Scene scene = new Scene(helloWorld); // Setting the scene to be our Label
-
-        stage.setScene(scene); // Setting the stage to show our scene
-        stage.show(); // Render the stage.
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/MainWindow.fxml"));
+            AnchorPane ap = loader.load();
+            Scene scene = new Scene(ap);
+            stage.setScene(scene);
+            loader.<MainWindow>getController().setChatbot(lebron);
+            stage.setOnCloseRequest(e -> {
+                e.consume();
+                lebron.exit();
+                loader.<MainWindow>getController().closeWindow();
+            });
+            stage.show();
+            stage.setTitle("LeBron");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

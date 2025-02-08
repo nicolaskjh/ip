@@ -24,12 +24,6 @@ import lebron.task.Todo;
 public class Storage {
     private final String filePath;
 
-    private final String TASK_TODO = "T";
-    private final String TASK_DEADLINE = "D";
-    private final String TASK_EVENT = "E";
-
-    private final String TASK_DONE = "1";
-
     /**
      * Constructor for Storage
      *
@@ -58,9 +52,9 @@ public class Storage {
                 String description = parts[2].trim();
 
                 Task task;
-                if (taskType.equals(TASK_TODO)) {
+                if (taskType.equals("T")) {
                     task = new Todo(description);
-                } else if (taskType.equals(TASK_DEADLINE)) {
+                } else if (taskType.equals("D")) {
                     LocalDate deadline = DateParser.parseDate(parts[3].trim());
                     task = new Deadline(description, deadline);
                 } else {
@@ -69,7 +63,7 @@ public class Storage {
                     task = new Event(description, start, end);
                 }
 
-                if (parts[1].trim().equals(TASK_DONE)) {
+                if (parts[1].trim().equals("1")) {
                     task.markDone();
                 }
 

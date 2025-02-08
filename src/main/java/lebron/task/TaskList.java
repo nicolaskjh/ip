@@ -93,6 +93,7 @@ public class TaskList {
      */
     public String filterTasks(String keyword) {
         StringBuilder tasks = new StringBuilder();
+        int count = 1;
 
         for (int i = 0; i < this.numTasks; i++) {
             if (this.tasks.get(i).getDescription().contains(keyword)) {
@@ -100,8 +101,9 @@ public class TaskList {
                     tasks.append("\n");
                 }
 
-                tasks.append(String.format("%d. ", i + 1));
+                tasks.append(String.format("%d. ", count));
                 tasks.append(this.tasks.get(i).toString());
+                count++;
             }
         }
 

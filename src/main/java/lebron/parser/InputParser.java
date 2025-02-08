@@ -60,7 +60,7 @@ public class InputParser {
         } else if (input.startsWith(PREFIX_FIND)) {
             return readFindInput(input);
         } else {
-            throw new LebronException("I'm not sure what you mean by this meow :(");
+            throw new LebronException("I'm not sure what you mean by this.");
         }
     }
 

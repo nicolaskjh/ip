@@ -1,7 +1,5 @@
 package lebron;
 
-import java.util.Scanner;
-
 import lebron.command.Command;
 import lebron.parser.InputParser;
 import lebron.storage.Storage;
@@ -12,7 +10,6 @@ import lebron.task.TaskList;
  */
 public class Lebron {
     private static TaskList taskList;
-    private static Scanner sc;
     private static Storage storage;
 
     /**
@@ -30,37 +27,17 @@ public class Lebron {
     }
 
     /**
-     * Main method to run LeBron chatbot
+     * Returns the response by LeBron chatbot for a user input
      *
-     * @param args Arguments to be provided
+     * @param input User input provided
+     * @return Response from LeBron chatbot
      */
-    public static void main(String[] args) {
-        new Lebron("data/lebron.txt").run();
-    }
-
-    /**
-     * Launches the LeBron chatbot
-     */
-    public void run() {
-        sc = new Scanner(System.in);
-        System.out.println("Hello! I'm LeBron!");
-        System.out.println("What can I do for you?");
-
-        while (sc.hasNextLine()) {
-            String input = sc.nextLine();
-            try {
-                Command currentCommand = InputParser.readInput(input);
-
-                if (currentCommand.isExit()) {
-                    this.exit();
-                    System.out.println(currentCommand.getResponse(taskList));
-                    break;
-                }
-
-                System.out.println(currentCommand.getResponse(taskList));
-            } catch (LebronException e) {
-                System.out.println(e.getMessage());
-            }
+    public String getResponse(String input) {
+        try {
+            Command currentCommand = InputParser.readInput(input);
+            return currentCommand.getResponse(taskList);
+        } catch (LebronException e) {
+            return e.getMessage();
         }
     }
 
