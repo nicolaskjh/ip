@@ -21,6 +21,9 @@ import lebron.task.Event;
 
 import lebron.LebronException;
 
+/**
+ * Represents a storage class to load and store tasks from a text file
+ */
 public class Storage {
     private final String filePath;
 
@@ -30,10 +33,21 @@ public class Storage {
 
     private final String TASK_DONE = "1";
 
+    /**
+     * Constructor for Storage
+     *
+     * @param filePath Filepath to load and store tasks from
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Loads the tasks from the text file into LeBron chatbot
+     *
+     * @return A list of tasks read from the text file
+     * @throws LebronException If the file does not exist from the given filepath
+     */
     public List<Task> loadTasks() throws LebronException {
         File file = new File(this.filePath);
         try {
@@ -71,6 +85,11 @@ public class Storage {
         }
     }
 
+    /**
+     * Stores the tasks into the text file given from the filepath
+     *
+     * @param tasks A list of tasks to be stored
+     */
     public void storeTasks(TaskList tasks) {
         try {
             File file = new File(this.filePath);

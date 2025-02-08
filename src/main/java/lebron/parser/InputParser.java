@@ -17,6 +17,9 @@ import lebron.task.Todo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * Represents an InputParser to parse user input
+ */
 public class InputParser {
     private static final String PREFIX_EXIT = "bye";
     private static final String PREFIX_LIST = "list";
@@ -30,6 +33,13 @@ public class InputParser {
     private static final String SPLIT_DEADLINE = "/by";
     private static final String SPLIT_EVENT = "/";
 
+    /**
+     * Reads the user input to determine the command to execute
+     *
+     * @param input Text input from user
+     * @return Command to be executed based on user input
+     * @throws LebronException If command given is invalid
+     */
     public static Command readInput(String input) throws LebronException {
         if (input.startsWith(PREFIX_EXIT)) {
             return new ExitCommand();
@@ -52,6 +62,13 @@ public class InputParser {
         }
     }
 
+    /**
+     * Reads a Todo input given by the user
+     *
+     * @param input Text input from the user
+     * @return AddCommand to be executed
+     * @throws LebronException If task description is empty
+     */
     public static Command readTodoInput(String input) throws LebronException {
         String[] split = input.split(" ", 2);
 
@@ -64,6 +81,12 @@ public class InputParser {
         return new AddCommand(new Todo(split[1].trim()));
     }
 
+    /**
+     * Reads a Deadline input given by the user
+     *
+     * @param input Text input from the user
+     * @return AddCommand to be executed
+     */
     public static Command readDeadlineInput(String input) {
         String[] split = input.split(" ", 2);
         String[] deadlineSplit = split[1].split(SPLIT_DEADLINE);
@@ -72,6 +95,12 @@ public class InputParser {
         return new AddCommand(new Deadline(deadlineSplit[0].trim(), deadline));
     }
 
+    /**
+     * Reads an Event input given by the user
+     *
+     * @param input Text input from the user
+     * @return AddCommand to be executed
+     */
     public static Command readEventInput(String input) {
         String[] split = input.split(" ", 2);
         String[] eventSplit = split[1].split(SPLIT_EVENT);
@@ -81,6 +110,13 @@ public class InputParser {
         return new AddCommand(new Event(eventSplit[0].trim(), from, to));
     }
 
+    /**
+     * Reads a Mark input given by the user
+     *
+     * @param input Text input from the user
+     * @return MarkDoneCommand to be executed
+     * @throws LebronException If task number given is empty
+     */
     public static Command readMarkInput(String input) throws LebronException {
         String[] split = input.split(" ", 2);
 
@@ -93,6 +129,13 @@ public class InputParser {
         return new MarkDoneCommand(Integer.parseInt(split[1]) - 1);
     }
 
+    /**
+     * Reads an Unmark input given by the user
+     *
+     * @param input Text input from the user
+     * @return UnmarkDoneCommand to be executed
+     * @throws LebronException If task number given is empty
+     */
     public static Command readUnmarkInput(String input) throws LebronException {
         String[] split = input.split(" ", 2);
 
@@ -105,6 +148,13 @@ public class InputParser {
         return new UnmarkDoneCommand(Integer.parseInt(split[1]) - 1);
     }
 
+    /**
+     * Reads a Delete input given by the user
+     *
+     * @param input Text input from the user
+     * @return DeleteCommand to be executed
+     * @throws LebronException If task number given is empty
+     */
     public static Command readDeleteInput(String input) throws LebronException {
         String[] split = input.split(" ", 2);
 
