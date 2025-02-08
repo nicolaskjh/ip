@@ -32,11 +32,11 @@ public class TaskList {
     /**
      * Returns the task specified by the task number
      *
-     * @param idx Task number
+     * @param taskNumber Task number
      * @return Task at the specified index
      */
-    public Task getTask(int idx) {
-        return this.tasks.get(idx);
+    public Task getTask(int taskNumber) {
+        return this.tasks.get(taskNumber);
     }
 
     /**
@@ -61,29 +61,29 @@ public class TaskList {
     /**
      * Removes a task from the task list
      *
-     * @param idx Task number to be removed
+     * @param taskNumber Task number to be removed
      */
-    public void removeTask(int idx) {
-        this.tasks.remove(idx);
+    public void removeTask(int taskNumber) {
+        this.tasks.remove(taskNumber);
         this.numTasks--;
     }
 
     /**
      * Marks a task in the task list as done
      *
-     * @param idx Task number to be marked
+     * @param taskNumber Task number to be marked
      */
-    public void markDone(int idx) {
-        tasks.get(idx).markDone();
+    public void markDone(int taskNumber) {
+        tasks.get(taskNumber).markDone();
     }
 
     /**
      * Unmarks a task in the task list as done
      *
-     * @param idx Task number to be unmarked
+     * @param taskNumber Task number to be unmarked
      */
-    public void unmarkDone(int idx) {
-        tasks.get(idx).unmarkDone();
+    public void unmarkDone(int taskNumber) {
+        tasks.get(taskNumber).unmarkDone();
     }
 
     /**

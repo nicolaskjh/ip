@@ -7,15 +7,15 @@ import lebron.task.TaskList;
  * Represents a DeleteCommand to remove a task from the list
  */
 public class DeleteCommand extends Command {
-    private int idx;
+    private int taskNumber;
 
     /**
      * Constructor for DeleteCommand
      *
-     * @param idx The task number to be deleted
+     * @param taskNumber The task number to be deleted
      */
-    public DeleteCommand(int idx) {
-        this.idx = idx;
+    public DeleteCommand(int taskNumber) {
+        this.taskNumber = taskNumber;
     }
 
     /**
@@ -26,8 +26,8 @@ public class DeleteCommand extends Command {
      */
     @Override
     public String getResponse(TaskList taskList) {
-        Task removed = taskList.getTask(idx);
-        taskList.removeTask(this.idx);
+        Task removed = taskList.getTask(taskNumber);
+        taskList.removeTask(this.taskNumber);
 
         return "Got it, I've removed this task:\n" + removed.toString() +
                 "\nYou now have " + taskList.getNumTasks() + " tasks.";

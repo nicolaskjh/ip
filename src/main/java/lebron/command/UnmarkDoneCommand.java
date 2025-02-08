@@ -6,15 +6,15 @@ import lebron.task.TaskList;
  * Represents a UnmarkDoneCommand to unmark a task as done
  */
 public class UnmarkDoneCommand extends Command {
-    private int idx;
+    private int taskNumber;
 
     /**
      * Constructor for UnmarkDoneCommand
      *
-     * @param idx The task number to be unmarked
+     * @param taskNumber The task number to be unmarked
      */
-    public UnmarkDoneCommand(int idx) {
-        this.idx = idx;
+    public UnmarkDoneCommand(int taskNumber) {
+        this.taskNumber = taskNumber;
     }
 
     /**
@@ -25,9 +25,9 @@ public class UnmarkDoneCommand extends Command {
      */
     @Override
     public String getResponse(TaskList taskList) {
-        taskList.unmarkDone(this.idx);
+        taskList.unmarkDone(this.taskNumber);
 
         return "I've unmarked this task:\n"
-                + taskList.getTask(idx).toString();
+                + taskList.getTask(taskNumber).toString();
     }
 }
