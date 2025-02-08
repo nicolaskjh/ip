@@ -8,7 +8,7 @@ import lebron.storage.Storage;
 import lebron.task.TaskList;
 
 /**
- * The main class for LeBron ChatBot
+ * Represents the main class for LeBron ChatBot
  */
 public class Lebron {
     private static TaskList taskList;
