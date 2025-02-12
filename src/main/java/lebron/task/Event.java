@@ -18,8 +18,8 @@ public class Event extends Task {
      * @param start Event start date and time
      * @param end Event end date and time
      */
-    public Event(String description, LocalDateTime start, LocalDateTime end) {
-        super(description);
+    public Event(String description, TaskPriority priority, LocalDateTime start, LocalDateTime end) {
+        super(description, priority);
         this.start = start;
         this.end = end;
     }
@@ -31,8 +31,9 @@ public class Event extends Task {
      */
     @Override
     public String toDataString() {
-        return String.format("E, %s, %s, %s, %s",
+        return String.format("E, %s, %s, %s, %s, %s",
                 super.getStatusData(),
+                super.getPriorityData(),
                 super.getDescription(),
                 DateParser.dateTimeToDataString(this.start),
                 DateParser.dateTimeToDataString(this.end));

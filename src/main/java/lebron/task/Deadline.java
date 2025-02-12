@@ -16,8 +16,8 @@ public class Deadline extends Task {
      * @param description Task description
      * @param dueDate Due date of the task
      */
-    public Deadline(String description, LocalDate dueDate) {
-        super(description);
+    public Deadline(String description, TaskPriority priority, LocalDate dueDate) {
+        super(description, priority);
         this.dueDate = dueDate;
     }
 
@@ -28,8 +28,9 @@ public class Deadline extends Task {
      */
     @Override
     public String toDataString() {
-        return String.format("D, %s, %s, %s",
+        return String.format("D, %s, %s, %s, %s",
                 super.getStatusData(),
+                super.getPriorityData(),
                 super.getDescription(),
                 DateParser.dateToDataString(this.dueDate));
     }

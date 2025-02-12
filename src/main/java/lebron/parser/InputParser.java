@@ -15,6 +15,7 @@ import lebron.command.SingCommand;
 import lebron.command.UnmarkDoneCommand;
 import lebron.task.Deadline;
 import lebron.task.Event;
+import lebron.task.TaskPriority;
 import lebron.task.Todo;
 
 /**
@@ -77,14 +78,26 @@ public class InputParser {
      */
     public static Command readTodoInput(String input) throws LebronException {
         String[] split = input.split(" ", 2);
+        String[] parts = split[0].split(" ");
 
         if (split.length != 2) {
             throw new LebronException("I need a description for your todo task!");
-        } else if (split[1].trim().isEmpty()) {
+        } else if (parts[1].trim().isEmpty()) {
             throw new LebronException("I need a description for your todo task!");
         }
 
-        return new AddCommand(new Todo(split[1].trim()));
+        String description = parts[1].trim();
+        String priority = parts[0].trim();
+        TaskPriority taskPriority;
+        if (priority.equals("l")) {
+            taskPriority = TaskPriority.LOW;
+        } else if (priority.equals("m")) {
+            taskPriority = TaskPriority.MEDIUM;
+        } else {
+            taskPriority = TaskPriority.HIGH;
+        }
+
+        return new AddCommand(new Todo(description, taskPriority));
     }
 
     /**
@@ -95,10 +108,22 @@ public class InputParser {
      */
     public static Command readDeadlineInput(String input) {
         String[] split = input.split(" ", 2);
-        String[] deadlineSplit = split[1].split(SPLIT_DEADLINE);
+        String[] parts = split[1].split(" ");
+        String[] deadlineSplit = parts[2].split(SPLIT_DEADLINE);
         LocalDate deadline = DateParser.parseDate(deadlineSplit[1].trim());
 
-        return new AddCommand(new Deadline(deadlineSplit[0].trim(), deadline));
+        String description = deadlineSplit[0].trim();
+        String priority = parts[0].trim();
+        TaskPriority taskPriority;
+        if (priority.equals("l")) {
+            taskPriority = TaskPriority.LOW;
+        } else if (priority.equals("m")) {
+            taskPriority = TaskPriority.MEDIUM;
+        } else {
+            taskPriority = TaskPriority.HIGH;
+        }
+
+        return new AddCommand(new Deadline(description, taskPriority, deadline));
     }
 
     /**
@@ -109,11 +134,23 @@ public class InputParser {
      */
     public static Command readEventInput(String input) {
         String[] split = input.split(" ", 2);
-        String[] eventSplit = split[1].split(SPLIT_EVENT);
+        String[] parts = split[1].split(" ");
+        String[] eventSplit = parts[2].split(SPLIT_EVENT);
         LocalDateTime from = DateParser.parseDateTime(eventSplit[1].trim());
         LocalDateTime to = DateParser.parseDateTime(eventSplit[2].trim());
 
-        return new AddCommand(new Event(eventSplit[0].trim(), from, to));
+        String description = eventSplit[0].trim();
+        String priority = parts[0].trim();
+        TaskPriority taskPriority;
+        if (priority.equals("l")) {
+            taskPriority = TaskPriority.LOW;
+        } else if (priority.equals("m")) {
+            taskPriority = TaskPriority.MEDIUM;
+        } else {
+            taskPriority = TaskPriority.HIGH;
+        }
+
+        return new AddCommand(new Event(description, taskPriority, from, to));
     }
 
     /**

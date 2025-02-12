@@ -9,8 +9,8 @@ public class Todo extends Task {
      *
      * @param description Task description
      */
-    public Todo(String description) {
-        super(description);
+    public Todo(String description, TaskPriority priority) {
+        super(description, priority);
     }
 
     /**
@@ -20,8 +20,9 @@ public class Todo extends Task {
      */
     @Override
     public String toDataString() {
-        return String.format("T, %s, %s",
+        return String.format("T, %s, %s, %s",
                 super.getStatusData(),
+                super.getPriorityData(),
                 super.getDescription());
     }
 
