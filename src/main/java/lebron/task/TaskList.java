@@ -100,9 +100,9 @@ public class TaskList {
                 if (!tasks.isEmpty()) {
                     tasks.append("\n");
                 }
-
                 tasks.append(String.format("%d. ", count));
                 tasks.append(this.tasks.get(i).toString());
+
                 count++;
             }
         }
