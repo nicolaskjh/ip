@@ -16,6 +16,7 @@ import lebron.task.Deadline;
 import lebron.task.Event;
 import lebron.task.Task;
 import lebron.task.TaskList;
+import lebron.task.TaskPriority;
 import lebron.task.Todo;
 
 /**
@@ -48,19 +49,31 @@ public class Storage {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] parts = line.split(",");
+
                 String taskType = parts[0].trim();
-                String description = parts[2].trim();
+
+                String priority = parts[1].trim();
+                TaskPriority taskPriority;
+                if (priority.equals("l")) {
+                    taskPriority = TaskPriority.LOW;
+                } else if (priority.equals("m")) {
+                    taskPriority = TaskPriority.MEDIUM;
+                } else {
+                    taskPriority = TaskPriority.HIGH;
+                }
+
+                String description = parts[3].trim();
 
                 Task task;
                 if (taskType.equals("T")) {
-                    task = new Todo(description);
+                    task = new Todo(description, taskPriority);
                 } else if (taskType.equals("D")) {
                     LocalDate deadline = DateParser.parseDate(parts[3].trim());
-                    task = new Deadline(description, deadline);
+                    task = new Deadline(description, taskPriority, deadline);
                 } else {
                     LocalDateTime start = DateParser.parseDateTime(parts[3].trim());
                     LocalDateTime end = DateParser.parseDateTime(parts[4].trim());
-                    task = new Event(description, start, end);
+                    task = new Event(description, taskPriority, start, end);
                 }
 
                 if (parts[1].trim().equals("1")) {

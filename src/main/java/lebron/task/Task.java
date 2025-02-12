@@ -5,6 +5,7 @@ package lebron.task;
  */
 public abstract class Task {
     private String description;
+    private TaskPriority priority;
     private boolean isDone;
 
     /**
@@ -12,8 +13,9 @@ public abstract class Task {
      *
      * @param description Task description
      */
-    public Task(String description) {
+    public Task(String description, TaskPriority priority) {
         this.description = description;
+        this.priority = priority;
         this.isDone = false;
     }
 
@@ -24,6 +26,36 @@ public abstract class Task {
      */
     public String getDescription() {
         return this.description;
+    }
+
+    /**
+     * Returns the string representation of the task priority
+     *
+     * @return Task priority
+     */
+    public String getPriority() {
+        if (this.priority == TaskPriority.LOW) {
+            return "[LOW]";
+        } else if (this.priority == TaskPriority.MEDIUM) {
+            return "[MED]";
+        } else {
+            return "[HIGH]";
+        }
+    }
+
+    /**
+     * Returns the data string of the task priority to be stored
+     *
+     * @return Data string of task priority
+     */
+    public String getPriorityData() {
+        if (this.priority == TaskPriority.LOW) {
+            return "l";
+        } else if (this.priority == TaskPriority.MEDIUM) {
+            return "m";
+        } else {
+            return "h";
+        }
     }
 
     /**
@@ -72,8 +104,9 @@ public abstract class Task {
      */
     @Override
     public String toString() {
-        return String.format("[%s] %s",
+        return String.format("[%s]%s %s",
                 this.getStatusIcon(),
+                this.getPriority(),
                 this.description);
     }
 }
