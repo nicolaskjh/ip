@@ -52,7 +52,7 @@ public class Storage {
 
                 String taskType = parts[0].trim();
 
-                String priority = parts[1].trim();
+                String priority = parts[2].trim();
                 TaskPriority taskPriority;
                 if (priority.equals("l")) {
                     taskPriority = TaskPriority.LOW;
@@ -68,11 +68,11 @@ public class Storage {
                 if (taskType.equals("T")) {
                     task = new Todo(description, taskPriority);
                 } else if (taskType.equals("D")) {
-                    LocalDate deadline = DateParser.parseDate(parts[3].trim());
+                    LocalDate deadline = DateParser.parseDate(parts[4].trim());
                     task = new Deadline(description, taskPriority, deadline);
                 } else {
-                    LocalDateTime start = DateParser.parseDateTime(parts[3].trim());
-                    LocalDateTime end = DateParser.parseDateTime(parts[4].trim());
+                    LocalDateTime start = DateParser.parseDateTime(parts[4].trim());
+                    LocalDateTime end = DateParser.parseDateTime(parts[5].trim());
                     task = new Event(description, taskPriority, start, end);
                 }
 
