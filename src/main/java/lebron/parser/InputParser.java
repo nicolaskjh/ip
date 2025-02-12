@@ -132,7 +132,10 @@ public class InputParser {
             throw new LebronException("I need a task number to mark!");
         }
 
-        return new MarkDoneCommand(Integer.parseInt(split[1]) - 1);
+        int taskNumber = Integer.parseInt(split[1]) - 1;
+        assert taskNumber >= 0;
+
+        return new MarkDoneCommand(taskNumber);
     }
 
     /**
@@ -151,7 +154,10 @@ public class InputParser {
             throw new LebronException("I need a task number to unmark!");
         }
 
-        return new UnmarkDoneCommand(Integer.parseInt(split[1]) - 1);
+        int taskNumber = Integer.parseInt(split[1]) - 1;
+        assert taskNumber >= 0;
+
+        return new UnmarkDoneCommand(taskNumber);
     }
 
     /**
@@ -170,7 +176,10 @@ public class InputParser {
             throw new LebronException("I need a task number to delete!");
         }
 
-        return new DeleteCommand(Integer.parseInt(split[1]) - 1);
+        int taskNumber = Integer.parseInt(split[1]) - 1;
+        assert taskNumber >= 0;
+
+        return new DeleteCommand(taskNumber);
     }
 
     /**
@@ -189,6 +198,9 @@ public class InputParser {
             throw new LebronException("I need a keyword to filter tasks!");
         }
 
-        return new FindCommand(split[1].trim());
+        String keyword = split[1].trim().toLowerCase();
+        assert !keyword.isEmpty();
+
+        return new FindCommand(keyword);
     }
 }
