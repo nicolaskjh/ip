@@ -31,9 +31,11 @@ public class Event extends Task {
      */
     @Override
     public String toDataString() {
-        return "E,  " + super.getStatusData() + ", " + super.getDescription()
-                + ", " + DateParser.dateTimeToDataString(this.start) + ", "
-                + DateParser.dateTimeToDataString(this.end);
+        return String.format("E, %s, %s, %s, %s",
+                super.getStatusData(),
+                super.getDescription(),
+                DateParser.dateTimeToDataString(this.start),
+                DateParser.dateTimeToDataString(this.end));
     }
 
     /**
@@ -43,7 +45,9 @@ public class Event extends Task {
      */
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + DateParser.dateTimeToString(this.start)
-                + " to: " + DateParser.dateTimeToString(this.end) + ")";
+        return String.format("[E]%s (from: %s to: %s)",
+                super.toString(),
+                DateParser.dateTimeToString(this.start),
+                DateParser.dateTimeToString(this.end));
     }
 }
