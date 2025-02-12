@@ -35,11 +35,11 @@ public abstract class Task {
      */
     public String getPriority() {
         if (this.priority == TaskPriority.LOW) {
-            return "[LOW]";
+            return "[L]";
         } else if (this.priority == TaskPriority.MEDIUM) {
-            return "[MED]";
+            return "[M]";
         } else {
-            return "[HIGH]";
+            return "[H]";
         }
     }
 
