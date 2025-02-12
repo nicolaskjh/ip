@@ -96,7 +96,7 @@ public class TaskList {
         int count = 1;
 
         for (int i = 0; i < this.numTasks; i++) {
-            if (this.tasks.get(i).getDescription().contains(keyword)) {
+            if (this.tasks.get(i).getDescription().toLowerCase().contains(keyword)) {
                 if (!tasks.isEmpty()) {
                     tasks.append("\n");
                 }
