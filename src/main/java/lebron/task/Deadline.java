@@ -28,8 +28,10 @@ public class Deadline extends Task {
      */
     @Override
     public String toDataString() {
-        return "D, " + super.getStatusData() + ", " + super.getDescription()
-                + ", " + DateParser.dateToDataString(dueDate);
+        return String.format("D, %s, %s, %s",
+                super.getStatusData(),
+                super.getDescription(),
+                DateParser.dateToDataString(this.dueDate));
     }
 
     /**
@@ -39,6 +41,8 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + DateParser.dateToString(this.dueDate) + ")";
+        return String.format("[D]%s (by: %s)",
+                super.toString(),
+                DateParser.dateToString(this.dueDate));
     }
 }
