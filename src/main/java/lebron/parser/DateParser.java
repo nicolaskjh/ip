@@ -72,19 +72,4 @@ public class DateParser {
     public static String dateTimeToDataString(LocalDateTime date) {
         return date.format(DATE_TIME_FORMATTER);
     }
-
-    /**
-     * Returns whether the date input is valid
-     *
-     * @param date Date input to be checked
-     * @return Boolean indicating if the string input format is valid
-     */
-    public static boolean isValidDate(String date) {
-        try {
-            LocalDate.parse(date, DATE_FORMATTER);
-        } catch (DateTimeParseException e) {
-            return false;
-        }
-        return true;
-    }
 }
