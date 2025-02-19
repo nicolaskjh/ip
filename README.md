@@ -2,7 +2,7 @@
 
 ## 🐐 Overview
 
-![Screenshot of LeBron GUI](./Ui.png)
+![Screenshot of LeBron GUI](./docs/Ui.png)
 
 The GOAT LeBron James is here to help you manage and prioritise your tasks and daily activities!
 
