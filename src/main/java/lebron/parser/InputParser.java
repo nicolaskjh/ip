@@ -2,6 +2,7 @@ package lebron.parser;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import lebron.LebronException;
 import lebron.command.AddCommand;
@@ -44,29 +45,21 @@ public class InputParser {
      * @throws LebronException If command given is invalid
      */
     public static Command readInput(String input) throws LebronException {
-        if (input.startsWith(PREFIX_EXIT)) {
-            return new ExitCommand();
-        } else if (input.startsWith(PREFIX_LIST)) {
-            return new ListCommand();
-        } else if (input.startsWith(PREFIX_TODO)) {
-            return readTodoInput(input);
-        } else if (input.startsWith(PREFIX_DEADLINE)) {
-            return readDeadlineInput(input);
-        } else if (input.startsWith(PREFIX_EVENT)) {
-            return readEventInput(input);
-        } else if (input.startsWith(PREFIX_MARK)) {
-            return readMarkInput(input);
-        } else if (input.startsWith(PREFIX_UNMARK)) {
-            return readUnmarkInput(input);
-        } else if (input.startsWith(PREFIX_DELETE)) {
-            return readDeleteInput(input);
-        } else if (input.startsWith(PREFIX_FIND)) {
-            return readFindInput(input);
-        } else if (input.startsWith(PREFIX_SING)) {
-            return new SingCommand();
-        } else {
-            throw new LebronException("I'm not sure what you mean by this.");
-        }
+        String[] parts = input.split(" ");
+        String command = parts[0];
+        return switch (command) {
+        case PREFIX_EXIT -> new ExitCommand();
+        case PREFIX_LIST -> new ListCommand();
+        case PREFIX_TODO -> readTodoInput(input);
+        case PREFIX_DEADLINE -> readDeadlineInput(input);
+        case PREFIX_EVENT -> readEventInput(input);
+        case PREFIX_MARK -> readMarkInput(input);
+        case PREFIX_UNMARK -> readUnmarkInput(input);
+        case PREFIX_DELETE -> readDeleteInput(input);
+        case PREFIX_FIND -> readFindInput(input);
+        case PREFIX_SING -> new SingCommand();
+        default -> throw new LebronException("I'm not sure what you mean by this.");
+        };
     }
 
     /**
@@ -78,7 +71,7 @@ public class InputParser {
      */
     public static Command readTodoInput(String input) throws LebronException {
         String[] split = input.split(" ", 2);
-        String[] parts = split[0].split(" ");
+        String[] parts = split[1].split(" ", 2);
 
         if (split.length != 2) {
             throw new LebronException("I need a description for your todo task!");
@@ -108,8 +101,8 @@ public class InputParser {
      */
     public static Command readDeadlineInput(String input) {
         String[] split = input.split(" ", 2);
-        String[] parts = split[1].split(" ");
-        String[] deadlineSplit = parts[2].split(SPLIT_DEADLINE);
+        String[] parts = split[1].split(" ", 2);
+        String[] deadlineSplit = parts[1].split(SPLIT_DEADLINE);
         LocalDate deadline = DateParser.parseDate(deadlineSplit[1].trim());
 
         String description = deadlineSplit[0].trim();
@@ -134,8 +127,8 @@ public class InputParser {
      */
     public static Command readEventInput(String input) {
         String[] split = input.split(" ", 2);
-        String[] parts = split[1].split(" ");
-        String[] eventSplit = parts[2].split(SPLIT_EVENT);
+        String[] parts = split[1].split(" ", 2);
+        String[] eventSplit = parts[1].split(SPLIT_EVENT);
         LocalDateTime from = DateParser.parseDateTime(eventSplit[1].trim());
         LocalDateTime to = DateParser.parseDateTime(eventSplit[2].trim());
 

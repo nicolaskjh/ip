@@ -103,6 +103,8 @@ public class Storage {
                     bw.newLine();
                 }
             }
+            bw.flush();
+            bw.close();
         } catch (IOException e) {
             System.err.println("Unable to write to file " + this.filePath);
         }
