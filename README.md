@@ -1,26 +1,80 @@
-# Cheeto project template
+# 👑 LeBron - CLI Task Management ChatBot
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+## 🐐 Overview
 
-## Setting up in Intellij
+![Screenshot of LeBron GUI](./Ui.png)
 
-Prerequisites: JDK 17, update Intellij to the most recent version.
+The GOAT LeBron James is here to help you manage and prioritise your tasks and daily activities!
 
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
-1. Open the project into Intellij as follows:
-   1. Click `Open`.
-   1. Select the project directory, and click `OK`.
-   1. If there are any further prompts, accept the defaults.
-1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
-   In the same dialog, set the **Project language level** field to the `SDK default` option.
-1. After that, locate the `src/main/java/Cheeto.java` file, right-click it, and choose `Run Cheeto.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
-   ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   ```
+Simply add your tasks, mark them as done, remove them or list them to see your upcoming
+tasks, deadlines and events using a simple set of commands!
 
-**Warning:** Keep the `src\main\java` folder as the root folder for Java files (i.e., don't rename those folders or move Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle) expect to find Java files.
+Occasionally, LeBron may even sing for you!
+
+## 🌟 Features
+
+### ℹ️ **Notes on Command Format**
+  ```
+  Priority Labels:
+  Low - l
+  Medium - m
+  High - h
+  
+  Date/Date-Time Format:
+  Date - yyyy-MM-dd (eg. 2024-02-18)
+  Date-Time - yyyy-MM-dd (eg. 2024-02-20 1800)
+  ```
+
+- **Add Tasks**: Create Todo, Deadline and Event tasks and tag priority labels to them
+  ```
+  Format:
+  todo [priority] [description]
+  deadline [priority] [description] /by [date]
+  event [priority] [description] /[date-time] /[date-time]
+  
+  Examples:
+  todo h Buy LeBron jersey
+  deadline l Post LeBron edits /by 2024-02-18
+  event m Watch Lakers game /2024-02-20 1800 /2024-02-20 2100
+  ```
+
+- **List Tasks**: See pending tasks, deadlines and events
+  ```
+  Format:
+  list
+  ```
+
+- **Mark Tasks**: Mark or unmark tasks as done
+  ```
+  Format:
+  mark [taskNumber]
+  unmark [taskNumber]
+  
+  Examples:
+  mark 1
+  unmark 3
+  ```
+
+- **Delete Tasks**: Remove tasks
+  ```
+  Format:
+  delete [taskNumber]
+  
+  Example:
+  delete 2
+  ```
+
+- **Find Tasks**: Find tasks with specified keyword
+  ```
+  Format:
+  find [keyword]
+  
+  Example:
+  find Bronny
+  ```
+
+- **Exit and Save Tasks**: Exit the chatbot and save logged tasks
+  ```
+  Format:
+  bye
+  ```
