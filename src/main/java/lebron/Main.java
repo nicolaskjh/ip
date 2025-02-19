@@ -23,10 +23,6 @@ public class Main extends Application {
             Scene scene = new Scene(ap);
             stage.setScene(scene);
             loader.<MainWindow>getController().setChatbot(lebron);
-            stage.setOnCloseRequest(e -> {
-                e.consume();
-                loader.<MainWindow>getController().closeWindow();
-            });
             stage.show();
             stage.setTitle("LeBron");
         } catch (IOException e) {

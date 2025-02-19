@@ -87,26 +87,7 @@ public class MainWindow {
 
         if (response.equals(EXIT_RESPONSE)) {
             lebron.exit();
-            new Thread(() -> {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    // do nothing
-                }
-                Platform.exit();
-            }).start();
+            Platform.exit();
         }
-    }
-
-    /**
-     * Closes the GUI window
-     */
-    @FXML
-    public void closeWindow() {
-        Stage stage = (Stage) textContainer.getScene().getWindow();
-        textContainer.getChildren().add(
-                TextBox.getLebronText(EXIT_RESPONSE, lebronImage)
-        );
-        stage.close();
     }
 }

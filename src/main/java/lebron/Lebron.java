@@ -5,6 +5,8 @@ import lebron.parser.InputParser;
 import lebron.storage.Storage;
 import lebron.task.TaskList;
 
+import java.io.IOException;
+
 /**
  * Represents the main class for LeBron ChatBot
  */
@@ -45,6 +47,10 @@ public class Lebron {
      * Exits the LeBron chatbot when the exit command is given by the user
      */
     public void exit() {
-        storage.storeTasks(taskList);
+        try {
+            storage.storeTasks(taskList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,9 +1,6 @@
 package lebron.storage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -94,31 +91,20 @@ public class Storage {
      *
      * @param tasks A list of tasks to be stored
      */
-    public void storeTasks(TaskList tasks) {
+    public void storeTasks(TaskList tasks) throws IOException {
+        File file = new File(this.filePath);
+        file.getParentFile().mkdirs();
+
         try {
-            File file = new File(this.filePath);
-            FileWriter fw = new FileWriter(file);
-            StringBuilder storedTasks = new StringBuilder();
-
+            BufferedWriter bw = new BufferedWriter(new FileWriter(this.filePath));
             for (int i = 0; i < tasks.getNumTasks(); i++) {
-                Task task = tasks.getTask(i);
-
-                storedTasks.append(task.toDataString());
+                bw.write(tasks.getTask(i).toDataString());
                 if (i < tasks.getNumTasks() - 1) {
-                    storedTasks.append("\n");
+                    bw.newLine();
                 }
             }
-
-            fw.write(storedTasks.toString());
-            fw.close();
-        } catch (IOException e) {
-            String fileDirectory = this.filePath.replace(
-                    this.filePath.substring(this.filePath.indexOf("/")), "");
-            File file = new File(fileDirectory);
-
-            if (file.mkdir()) {
-                storeTasks(tasks);
-            }
+        } catch (IOException) {
+            System.err.println("Unable to write to file " + this.filePath);
         }
     }
 }
