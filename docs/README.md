@@ -78,3 +78,7 @@ Occasionally, LeBron may even sing for you!
   Format:
   bye
   ```
+
+### 🎤 Easter Egg
+
+- LeBron may sometimes sing if he's in the mood. Try to find the command that does so!

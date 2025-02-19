@@ -13,7 +13,7 @@ Occasionally, LeBron may even sing for you!
 
 ## 🌟 Features
 
-### ℹ️ **Notes on Command Format**
+### ℹ️ Notes on Command Format
   ```
   Priority Labels:
   Low - l
@@ -78,3 +78,6 @@ Occasionally, LeBron may even sing for you!
   Format:
   bye
   ```
+### 🎤 Easter Egg
+
+- LeBron may sometimes sing if he's in the mood. Try to find the command that does so!
