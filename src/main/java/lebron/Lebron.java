@@ -1,11 +1,11 @@
 package lebron;
 
+import java.io.IOException;
+
 import lebron.command.Command;
 import lebron.parser.InputParser;
 import lebron.storage.Storage;
 import lebron.task.TaskList;
-
-import java.io.IOException;
 
 /**
  * Represents the main class for LeBron ChatBot

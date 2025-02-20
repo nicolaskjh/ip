@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
 import lebron.Lebron;
 
 /**
@@ -31,9 +30,9 @@ public class MainWindow {
 
     private Lebron lebron;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/bronny.png"));
-    private Image lebronImage = new Image(this.getClass().getResourceAsStream("/images/lebron.png"));
-    private String audioFile = "/audio/lebron.mp3";
+    private final Image userImage = new Image(this.getClass().getResourceAsStream("/images/bronny.png"));
+    private final Image lebronImage = new Image(this.getClass().getResourceAsStream("/images/lebron.png"));
+    private final String audioFile = "/audio/lebron.mp3";
     private MediaPlayer audio;
 
     /**
@@ -77,8 +76,8 @@ public class MainWindow {
         userInput.clear();
 
         if (input.equals(SING_INPUT)) {
-            if (audio != null && audio.getStatus() == MediaPlayer.Status.PLAYING) {
-                audio.stop();
+            if (this.audio != null && this.audio.getStatus() == MediaPlayer.Status.PLAYING) {
+                this.audio.stop();
             }
 
             this.audio = new MediaPlayer(new Media(this.getClass().getResource(this.audioFile).toExternalForm()));

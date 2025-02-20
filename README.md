@@ -14,16 +14,16 @@ Occasionally, LeBron may even sing for you!
 ## 🌟 Features
 
 ### ℹ️ Notes on Command Format
-  ```
-  Priority Labels:
-  Low - l
-  Medium - m
-  High - h
-  
-  Date/Date-Time Format:
-  Date - yyyy-MM-dd (eg. 2024-02-18)
-  Date-Time - yyyy-MM-dd (eg. 2024-02-20 1800)
-  ```
+```
+Priority Labels:
+Low - l
+Medium - m
+High - h
+
+Date/Date-Time Format:
+Date - yyyy-MM-dd (eg. 2024-02-18)
+Date-Time - yyyy-MM-dd (eg. 2024-02-20 1800)
+```
 
 - **Add Tasks**: Create Todo, Deadline and Event tasks and tag priority labels to them
   ```

@@ -2,7 +2,6 @@ package lebron.parser;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 import lebron.LebronException;
 import lebron.command.AddCommand;
